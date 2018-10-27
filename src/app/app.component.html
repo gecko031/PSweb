@@ -1,12 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<p>
-  <!--My name is {{human.name}} and i am {{human.age}} years old<br>-->
-  {{showHuman()}};<br>
-  I'm working on {{title}}<br>
-  Today is: {{date}}<br>
-  favNumber is: {{number}}<br>
-  
+<H3> Hi there, welcome to my project {{title | uppercase}}</H3>
 
-</p>
+<p>Days of the week</p>
 
+<ul>
+  <li *ngFor="let day of days">
+    {{day}}
+  </li>
+</ul>
 
+<ul>
+  <li *ngFor="let pearson of people">
+    {{pearson.name}} + ' is ' + {{pearson.age}} + ' years old';
+  </li>
+</ul>

@@ -7,16 +7,24 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PSweb';
-  date = new Date();
-  number = Math.PI;
-  human = new Human('Pawel', 23);
+  days = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ];
+  people = new Array<Person>();
 
-  showHuman() {
-    return 'I am ' + this.human.name + ' and I am ' + this.human.age + ' years old';
+  constructor() {
+    this.people.push(new Person('Kate', 25), new Person('John', 26), new Person('Mary', 20));
   }
 }
-class Human {
-  constructor(public name: string, public age: number) { /*public means visibilit*/
+
+class Person {
+  constructor(public name: string, public age: number) { /*public means visibility*/
   }
 }
 
