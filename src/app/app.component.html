@@ -8,8 +8,10 @@
   </li>
 </ul>
 
-<ul>
-  <li *ngFor="let pearson of people">
+<div>
+  <div *ngFor="let pearson of people">
     {{pearson.name}} + ' is ' + {{pearson.age}} + ' years old';
-  </li>
-</ul>
+  </div>
+</div>
+
+<app-temp *ngFor="let i of [4, 5, 6, 7]"></app-temp>
