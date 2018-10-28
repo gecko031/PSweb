@@ -2,16 +2,31 @@
 
 <p>Days of the week</p>
 
+<!--<div *ngIf="days.length > 0">
+  <ul>
+    <p *ngFor="let day of days; let e = even">
+      <li *ngIf="e">
+        {{day}}
+      </li>
+    </p>
+  </ul>
+</div>-->
 <ul>
-  <li *ngFor="let day of days">
-    {{day}}
-  </li>
+  <ng-container *ngFor="let day of days; let e = even"> <!--for ex. helps with the css management-->
+    <li *ngIf="e">
+      {{day}}
+    </li>
+  </ng-container>
 </ul>
-
-<div>
-  <div *ngFor="let pearson of people">
-    {{pearson.name}} + ' is ' + {{pearson.age}} + ' years old';
+<!--<ul>
+  <p *ngFor="let day of days; let e = even">
+    <li *ngIf="e">
+      {{day}}
+    </li>
+  </p>
+</ul>-->
+<div *ngFor="let pearson of people">
+  <div *ngIf="pearson.age > 21">
+      {{pearson.name}} + ' is ' + {{pearson.age}} + ' years old';
   </div>
 </div>
-
-<app-temp *ngFor="let i of [4, 5, 6, 7]"></app-temp>
