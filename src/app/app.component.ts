@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PSweb';
-
   days = [
     'Monday',
     'Tuesday',
@@ -15,8 +14,17 @@ export class AppComponent {
     'Thursday',
     'Friday',
     'Saturday',
-    'Sunday',
+    'Sunday'
   ];
+  isVisible = true;
+  isHidden = false;
 
+  show() {
+    this.isVisible = !this.isVisible;
+  }
+  hidden() {
+    this.isHidden = !this.isHidden;
+  }
 }
+
 

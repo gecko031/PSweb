@@ -1,16 +1,21 @@
 <H3> Hi there, welcome to my project {{title | uppercase}}</H3>
 
-<p>Days of the week in Icelandic</p>
+<p>Days of the week If usage</p>
 
-<div *ngFor="let day of days">
-  <div [ngSwitch]="day">
-    <div *ngSwitchCase="'Monday'">mánudagur</div>
-    <div *ngSwitchCase="'Tuesday'">Þriðjudagur</div>
-    <div *ngSwitchCase="'Wednesday'">Miðvikudagur</div>
-    <div *ngSwitchCase="'Thursday'">Fimmtudagur</div>
-    <div *ngSwitchCase="'Friday'">Föstudagur</div>
-    <div *ngSwitchCase="'Saturday'">Laugardagur</div>
-    <div *ngSwitchCase="'Sunday'">Sunnudagur</div>
-    <div *ngSwitchDefault>I don't know which day is it</div>
+<ng-container *ngIf="isVisible">  <!--Destroys all elements-->
+  <div *ngFor="let day of days">
+    <div>{{day}}</div>
+  </div>
+</ng-container>
+<button (click)="show()">NgIf</button>
+
+<br>
+
+<p>Days of the week 'hidden' usage</p>
+
+<div [hidden]="isHidden"> <!--It makes elements only disappear, not remove-->
+  <div *ngFor="let day of days">
+    <div>{{day}}</div>
   </div>
 </div>
+<button (click)="hidden()">Hidden</button>
