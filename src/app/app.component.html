@@ -1,24 +1,16 @@
 <H3> Hi there, welcome to my project {{title | uppercase}}</H3>
 
-<p>Days of the week</p>
+<p>Days of the week in Icelandic</p>
 
-<ul>
-  <ng-container *ngFor="let day of days; let e = even"> <!--for ex. helps with the css management-->
-    <li *ngIf="e">
-      {{day}}
-    </li>
-  </ng-container>
-</ul>
-
-<div *ngIf="people.length > 0; else noPerson">
-  <div *ngFor="let person of people">
-      {{person.name}} + ' is ' + {{person.age}} + ' years old';
+<div *ngFor="let day of days">
+  <div [ngSwitch]="day">
+    <div *ngSwitchCase="'Monday'">mánudagur</div>
+    <div *ngSwitchCase="'Tuesday'">Þriðjudagur</div>
+    <div *ngSwitchCase="'Wednesday'">Miðvikudagur</div>
+    <div *ngSwitchCase="'Thursday'">Fimmtudagur</div>
+    <div *ngSwitchCase="'Friday'">Föstudagur</div>
+    <div *ngSwitchCase="'Saturday'">Laugardagur</div>
+    <div *ngSwitchCase="'Sunday'">Sunnudagur</div>
+    <div *ngSwitchDefault>I don't know which day is it</div>
   </div>
 </div>
-
-<ng-template #noPerson>
-  <p>There's no one at all</p>
-</ng-template>
-
-<button (click)="addPerson()">Add</button>
-<button (click)="removePerson()">Remove</button>

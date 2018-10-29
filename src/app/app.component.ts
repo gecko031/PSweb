@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PSweb';
+
   days = [
     'Monday',
     'Tuesday',
@@ -14,22 +15,8 @@ export class AppComponent {
     'Thursday',
     'Friday',
     'Saturday',
-    'Sunday'
+    'Sunday',
   ];
-  people = new Array<Person>();
 
-  constructor() {
-    this.people.push(new Person('Kate', 25), new Person('John', 26), new Person('Mary', 20));
-  }
-  addPerson() {
-    this.people.push(new Person('Kate', 25), new Person('John', 26), new Person('Mary', 20));
-  }
-  removePerson() {
-    this.people = [];
-  }
 }
 
-class Person {
-  constructor(public name: string, public age: number) { /*public means visibility*/
-  }
-}
