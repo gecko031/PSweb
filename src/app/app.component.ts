@@ -21,6 +21,12 @@ export class AppComponent {
   constructor() {
     this.people.push(new Person('Kate', 25), new Person('John', 26), new Person('Mary', 20));
   }
+  addPerson() {
+    this.people.push(new Person('Kate', 25), new Person('John', 26), new Person('Mary', 20));
+  }
+  removePerson() {
+    this.people = [];
+  }
 }
 
 class Person {
