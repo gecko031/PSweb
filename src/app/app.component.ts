@@ -27,13 +27,13 @@ export class AppComponent {
       this.isDisable = false;
     }, 3000);*/
   }
-
+/* property + event binding
   inputG(event) {
     this.group = event.target.value;
   }
   inputPT(event) {
     this.preyType = event.target.value;
-  }
+  }*/
 
 
   /*  event binding

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { TempComponent } from './temp/temp.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { TempComponent } from './temp/temp.component';
     TempComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

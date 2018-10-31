@@ -13,7 +13,7 @@
 <p>This animal is {{group}}, and its food is {{preyType}}</p>
 
 <label for="male">Group</label>
-<input [value]="group" (input)="inputG($event)">
+<input [(ngModel)]="group">
 <br>
 <label for="male">Food</label>
-<input [value]="preyType" (input)="inputPT($event)">
+<input [(ngModel)]="preyType">
