@@ -1,19 +1,40 @@
-<!--<h3 [className]="colorClass">{{title}} Property binding</h3>-->
+<div>
+  <div class="container">
+    <div>
+      <input [(ngModel)]="newTask">
+      <button (click)="add()">Add</button>
+    </div>
+  </div>
 
-<!--<input [disabled]="isDisable" (focus)="onFocus()">
-<br>
-<input [disabled]="isDisable" (click)="onClick($event)">
-<br>
-<input [disabled]="isDisable" (mousemove)="onMouseMovement($event)">
-<br>
-<input [disabled]="isDisable" (paste)="onPaste()">{{inputText}}
-<br>
-<button (click)="change()">Change</button>-->
+  <div class="container">
 
-<p>This animal is {{group}}, and its food is {{preyType}}</p>
+    <div>
+      <ng-container *ngIf="tasksList.length > 0; else noTasks">
+        <ul>
+          <li *ngFor="let task of tasksList">
+            {{task}}
+            <button (click)="remove(task)">Remove</button>
+            <button (click)="markDone(task)">Mark as done</button>
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noTasks>
+        <p>No tasks availible, enjoy your free time</p>
+      </ng-template>
+    </div>
 
-<label for="male">Group</label>
-<input [(ngModel)]="group">
-<br>
-<label for="male">Food</label>
-<input [(ngModel)]="preyType">
+    <div>
+      <p>Done tasks: {{tasksDone.length}}</p>
+      <ul>
+        <li *ngFor="let task of tasksDone">
+          {{task}}
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      DONE
+    </div>
+
+  </div>
+</div>
