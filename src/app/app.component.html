@@ -1,6 +1,11 @@
 <h3 [className]="colorClass">{{title}} Property binding</h3>
-<img [src]="logoUrl">
-<input type="text" [value]="inputText" [attr.maxlength]="maxLength">
 
-<button [disabled]="isDisable" (click)="change()">Add</button>
-
+<input [disabled]="isDisable" (focus)="onFocus()">
+<br>
+<input [disabled]="isDisable" (click)="onClick($event)">
+<br>
+<input [disabled]="isDisable" (mousemove)="onMouseMovement($event)">
+<br>
+<input [disabled]="isDisable" (paste)="onPaste()">{{inputText}}
+<br>
+<button (click)="change()">Change</button>
