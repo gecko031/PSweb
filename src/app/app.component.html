@@ -1,6 +1,6 @@
-<h3 [className]="colorClass">{{title}} Property binding</h3>
+<!--<h3 [className]="colorClass">{{title}} Property binding</h3>-->
 
-<input [disabled]="isDisable" (focus)="onFocus()">
+<!--<input [disabled]="isDisable" (focus)="onFocus()">
 <br>
 <input [disabled]="isDisable" (click)="onClick($event)">
 <br>
@@ -8,4 +8,12 @@
 <br>
 <input [disabled]="isDisable" (paste)="onPaste()">{{inputText}}
 <br>
-<button (click)="change()">Change</button>
+<button (click)="change()">Change</button>-->
+
+<p>This animal is {{group}}, and its food is {{preyType}}</p>
+
+<label for="male">Group</label>
+<input [value]="group" (input)="inputG($event)">
+<br>
+<label for="male">Food</label>
+<input [value]="preyType" (input)="inputPT($event)">

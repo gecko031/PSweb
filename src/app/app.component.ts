@@ -8,15 +8,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'PSweb';
 
+  group = 'wolf';
+  preyType = 'sheep';
+
+  /*  event binding
   inputText = 'text';
   colorClass = 'color';
   isDisable = true;
-  /*
-  *property binding
+  */
+  /*  property binding
   logoUrl = '';
   maxLength = 5;
   */
-
 
   constructor() {
 /* property binding
@@ -25,6 +28,15 @@ export class AppComponent {
     }, 3000);*/
   }
 
+  inputG(event) {
+    this.group = event.target.value;
+  }
+  inputPT(event) {
+    this.preyType = event.target.value;
+  }
+
+
+  /*  event binding
   onFocus() {
     this.colorClass = 'color2';
   }
@@ -39,7 +51,7 @@ export class AppComponent {
   }
   change() {
     this.isDisable = false;
-  }
+  }*/
 
   /*property binding
   change() {
