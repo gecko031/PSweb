@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit {
+  @Input()
+  tasks = ['piano lessons', 'swimming', 'clean house'];
+  /*
+  this way is also correct
+  @Input()
+  tasks;*/
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }
