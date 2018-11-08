@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -6,16 +6,18 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnInit {
+
   @Input()
-  tasks = ['piano lessons', 'swimming', 'clean house'];
-  /*
-  this way is also correct
-  @Input()
-  tasks;*/
+  tasks;
+
+  @Output()
+  eventTask = new EventEmitter<string>();
 
   constructor() {}
 
   ngOnInit() {
   }
-
+  select(task) {
+    this.eventTask.emit(task);
+  }
 }
