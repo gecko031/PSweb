@@ -12,5 +12,4 @@ export class AppComponent {
   selected(task: string): void {
     console.log(task);
   }
-
 }
