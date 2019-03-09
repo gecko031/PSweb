@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  tasksList = ['piano lessons', 'swimming', 'clean house'];
+  tasksList = ['piano lessons', 'swimming', 'house cleaning'];
 
   selected(task: string): void {
     console.log(task);
