@@ -1,9 +1,13 @@
-<app-child [tasks]="tasksList" (eventTask)="selected($event)">
+<input #inputString>
+<button (click)="add(inputString)"> Add</button>
+<app-child #childConnection [tasks]="tasksList" (eventTask)="selected($event)"></app-child>
 
-</app-child>
 
-<app-child-content>
+
+<!--
+  <app-child-content>
     <p>Here we have some useless data</p><br>
     <p>to see if component childContent receives</p>
     <p>and displays</p>
 </app-child-content>
+-->
