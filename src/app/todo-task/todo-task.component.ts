@@ -26,4 +26,8 @@ export class TodoTaskComponent implements OnInit {
     this.emitMarkDone.emit(task);
   }
 
+  getColor(): string {
+    return this.tasksList.length >= 3 ? 'brown' : 'darkgreen';
+  }
+
 }
