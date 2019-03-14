@@ -1,18 +1,6 @@
-<div>
-  <div class="container">
-    <div>
-      <app-add-task (emitTask)="add($event)"></app-add-task>
-    </div>
-  </div>
-
-  <div class="container">
-    <div>
-      <app-todo-task [tasksList]="tasksList" (emitMarkDone)="markDone($event)" (emitRemove)="remove($event)"></app-todo-task>
-    </div>
-
-    <div>
-      <app-done-task [tasksDone]="tasksDone"></app-done-task>
-    </div>
-
-  </div>
+<h2>Voter</h2>
+<h3>Lets rate something</h3><br>
+<div class="box">
+  <app-downvote></app-downvote> 
+  <app-upvote></app-upvote>
 </div>
