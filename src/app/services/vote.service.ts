@@ -1,15 +1,27 @@
 import { Injectable } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VoteService {
-  vote = 0;
+  private vote = 0;
+  private sumOfVotes = new Subject<number>();
 
   constructor() { }
 
-  sumVotes(input: number): void {
-    this.vote += input;
-    console.log('sumVotes has [' + this.vote + '] votes');
+  sumVotes(input: string) {
+
+    if (input === 'upvote') {
+      this.vote += 1;
+    } else {
+      this.vote -= 1;
+    }
+    console.log('sumVotes has counted [' + this.vote + '] votes');
+
+    this.sumOfVotes.next(this.vote);
+  }
+  getSum(): Observable<number> {
+    return this.sumOfVotes.asObservable();
   }
 }

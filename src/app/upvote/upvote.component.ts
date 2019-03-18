@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VoteService } from '../services/vote.service';
 
 @Component({
   selector: 'app-upvote',
@@ -8,11 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class UpvoteComponent implements OnInit {
 
   vote = 0;
-  constructor() { }
+
+  constructor(private voteService: VoteService) { }
 
   ngOnInit() {}
 
   upvote(): void {
     this.vote += 1;
+    this.voteService.sumVotes('upvote');
   }
 }
