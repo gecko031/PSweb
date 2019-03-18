@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { UpvoteComponent } from './upvote/upvote.component';
 import { DownvoteComponent } from './downvote/downvote.component';
+import { LogService } from './services/log.service';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import { DownvoteComponent } from './downvote/downvote.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
