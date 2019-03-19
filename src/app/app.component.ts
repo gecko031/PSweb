@@ -5,20 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-
-  tasksList: Array<string> = [];
-  tasksDone: Array<string> = [];
-
-  add(task: string) {
-    this.tasksList.push(task);
-  }
-  remove(task: string) {
-    this.tasksList = this.tasksList.filter( e => e !== task);
-  }
-  markDone(task: string) {
-    this.tasksDone.push(task);
-    this.remove(task);
-  }
-
-}
+export class AppComponent { }
