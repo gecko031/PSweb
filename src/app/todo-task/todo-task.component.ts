@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { TasksService } from '../services/tasks.services';
+import { Task } from '../model/task.model';
 
 @Component({
   selector: 'app-todo-task',
@@ -8,20 +9,20 @@ import { TasksService } from '../services/tasks.services';
 })
 export class TodoTaskComponent implements OnInit {
 
-  tasksList = [];
+  tasksList: Array<Task> = [];
 
   constructor(private tasksService: TasksService) {
-    this.tasksService.getTaskListObs().subscribe((tasks: Array<string>) => {
+    this.tasksService.getTaskListObs().subscribe((tasks: Array<Task>) => {
       this.tasksList = tasks;
     });
   }
 
   ngOnInit() {
   }
-  remove(task: string) {
+  remove(task: Task) {
     this.tasksService.remove(task);
   }
-  markDone(task: string) {
+  markDone(task: Task) {
     this.tasksService.markDone(task);
   }
   getColor(): string {
