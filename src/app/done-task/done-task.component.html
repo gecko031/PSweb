@@ -1,7 +1,6 @@
 <p>Done tasks: {{tasksDone.length}}</p>
 <ul>
-  <li appTick *ngFor="let task of tasksDone">
-  
+  <li appTick appDate [date]="task.end" *ngFor="let task of tasksDone">
     {{task.name}}
   </li>
 </ul>

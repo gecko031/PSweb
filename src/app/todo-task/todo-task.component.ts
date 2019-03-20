@@ -23,6 +23,7 @@ export class TodoTaskComponent implements OnInit {
     this.tasksService.remove(task);
   }
   markDone(task: Task) {
+    task.end = new Date();
     this.tasksService.markDone(task);
   }
   getColor(): string {
