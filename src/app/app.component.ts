@@ -17,20 +17,22 @@ export class AppComponent {
   constructor(private http: HttpService) {}
 
   getPosts() {
-    this.allPosts$ = this.http.getPosts();
-   
+    this.allPosts$ = this.http.posts$;
   }
+
   getPost() {
     this. http.getPost(1).subscribe(post => {
       console.log(post);
     });
 
   }
+
   getPostByUser() {
     this.http.getPostByUser(1).subscribe(posts => {
       console.log(posts);
     });
   }
+
   addPost() {
     const post: Post = ({
       userId: 1,
@@ -43,6 +45,7 @@ export class AppComponent {
       console.log(post);
     });
   }
+
   updatePost() {
     const post: Post = ({
       userId: 1,
@@ -53,8 +56,9 @@ export class AppComponent {
     this.http.updatePost(post).subscribe( post => {
       console.log(post);
     });
-    
+
   }
+
   deletePost() {
     this.http.deletePost(1).subscribe( post => {
       console.log(post);
@@ -68,5 +72,6 @@ export class AppComponent {
     });
     this.http.changePost(p).subscribe( post => {
       console.log(post);
+    });
   }
 }

@@ -2,23 +2,33 @@ import { Injectable } from '@angular/core';
 import { Post } from './post';
 // import { Observable } from 'node_modules/rxjs/Observable';
 import { HttpParams, HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  constructor(private http: HttpClient) { }
+  private postsBS = new BehaviorSubject<Array<Post>>([]);
+  posts$ = this.postsBS.asObservable();
+
+  constructor(private http: HttpClient) {
+    this.getPosts();
+   }
 
 // download all posts
-getPosts(): Observable<Array<Post>> {
-  return this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts',
-  {observe: 'body'});
+getPosts() {
+  return this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts').subscribe(
+    posts => {
+      this.postsBS.next(posts);
+    }, // error handling
+    er => {
+      console.log(er);
+    });
 }
 
 // download single post
-getPost(id: number): Observable<Post>{
+getPost(id: number): Observable<Post> {
   return this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/' + id);
 }
 
@@ -29,9 +39,8 @@ getPostByUser(userId: number): Observable<Array<Post>> {
 }
 
 // download new post
-addPost(post: Post): Observable<Post>{
+addPost(post: Post): Observable<Post> {
   return this.http.post('https://jsonplaceholder.typicode.com/posts', post);
-
 }
 
 // Update/overwrite post
