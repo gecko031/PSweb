@@ -34,13 +34,14 @@ addPost(post: Post): Observable<Post>{
 }
 
 // Update/overwrite post
-updatePost(post: Post) {
+updatePost(post: Post): Observable<Post> {
+  return this.http.put('https://jsonplaceholder.typicode.com/posts/' + post.id, post);
 
 }
 
 // obvious
-deletePost(id: number){
-
+deletePost(id: number): Observable<Post> {
+  return this.http.delete<Post>('https://jsonplaceholder.typicode.com/posts/' + id);
 }
 
 // obvious...
