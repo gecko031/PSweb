@@ -17,10 +17,15 @@ export class AppComponent {
     });
   }
   getPost() {
+    this. http.getPost(1).subscribe(post => {
+      console.log(post);
+    });
 
   }
   getPostByUser() {
-
+    this.http.getPostByUser(1).subscribe(posts => {
+      console.log(posts);
+    });
   }
   addPost() {
     const post: Post = ({

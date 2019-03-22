@@ -15,27 +15,34 @@ export class HttpService {
 getPosts(): Observable<Array<Post>> {
   return this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts');
 }
+
 // download single post
-getPost(id: number) {
-
+getPost(id: number): Observable<Post>{
+  return this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/' + id);
 }
+
 // download all posts by user id
-getPostByUser(userId: number) {
-
+getPostByUser(userId: number): Observable<Array<Post>> {
+  const prm = new HttpParams().set('userId', userId + '');
+  return this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts', {params: prm});
 }
+
 // download new post
 addPost(post: Post) {
 
 }
+
 // Update/overwrite post
 updatePost(post: Post) {
 
 }
+
 // obvious
 deletePost(id: number){
 
 }
-// obvious
+
+// obvious...
 changePost(post: Post) {
 
 }
