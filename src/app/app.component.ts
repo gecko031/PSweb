@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Post } from './post';
 import { HttpService } from './http.service';
-
+import { HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +11,18 @@ import { HttpService } from './http.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   constructor(private http: HttpService) {}
 
   getPosts() {
     this.http.getPosts().subscribe( posts => {
       console.log(posts);
-    });
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.status);
+      }
+    );
+   
   }
   getPost() {
     this. http.getPost(1).subscribe(post => {

@@ -13,7 +13,7 @@ export class HttpService {
 
 // download all posts
 getPosts(): Observable<Array<Post>> {
-  return this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts');
+  return this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/postssadawd');
 }
 
 // download single post
