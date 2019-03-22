@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Post } from './post';
 // import { Observable } from 'node_modules/rxjs/Observable';
-import { HttpParams, HttpClient } from '@angular/common/http';
+import { HttpParams, HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,7 +13,8 @@ export class HttpService {
 
 // download all posts
 getPosts(): Observable<Array<Post>> {
-  return this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/postssadawd');
+  return this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts',
+  {observe: 'body'});
 }
 
 // download single post

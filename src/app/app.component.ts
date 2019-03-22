@@ -12,16 +12,12 @@ import { retry } from 'rxjs/operators';
 })
 export class AppComponent {
 
+  allPosts$: Observable<Array<Post>>;
+
   constructor(private http: HttpService) {}
 
   getPosts() {
-    this.http.getPosts().subscribe( posts => {
-      console.log(posts);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.status);
-      }
-    );
+    this.allPosts$ = this.http.getPosts();
    
   }
   getPost() {
