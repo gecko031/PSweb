@@ -62,5 +62,7 @@ export class AppComponent {
       id: 1,
       body: 'Lets change some posts...'
     });
+    this.http.changePost(p).subscribe( post => {
+      console.log(post);
   }
 }

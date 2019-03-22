@@ -46,7 +46,7 @@ deletePost(id: number): Observable<Post> {
 
 // obvious...
 changePost(post: Post) {
-
+  return this.http.patch('https://jsonplaceholder.typicode.com/posts/' + post.id, post);
 }
 
 }
