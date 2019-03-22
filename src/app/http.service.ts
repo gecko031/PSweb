@@ -28,7 +28,8 @@ getPostByUser(userId: number): Observable<Array<Post>> {
 }
 
 // download new post
-addPost(post: Post) {
+addPost(post: Post): Observable<Post>{
+  return this.http.post('https://jsonplaceholder.typicode.com/posts', post);
 
 }
 

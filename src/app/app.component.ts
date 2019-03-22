@@ -34,6 +34,10 @@ export class AppComponent {
       title: 'My post',
       body: 'First nothing-content post'
     });
+
+    this.http.addPost(post).subscribe(post => {
+      console.log(post);
+    });
   }
   updatePost() {
     const p: Post = ({
