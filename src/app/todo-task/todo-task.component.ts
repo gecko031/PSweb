@@ -13,7 +13,7 @@ export class TodoTaskComponent implements OnInit {
 
   constructor(private tasksService: TasksService) {
     this.tasksService.getTaskListObs().subscribe((tasks: Array<Task>) => {
-      this.tasksList = tasks.slice();
+      this.tasksList = tasks.filter(t => t.isDone === false);
     });
   }
 
@@ -23,7 +23,7 @@ export class TodoTaskComponent implements OnInit {
     this.tasksService.remove(task);
   }
   markDone(task: Task) {
-    task.end = new Date();
+    
     this.tasksService.markDone(task);
   }
   getColor(): string {
