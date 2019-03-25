@@ -4,8 +4,8 @@
     <ul>
         <li appDate [date]="task.created" *ngFor="let task of tasksList | sortName; let odd = odd" [ngClass]="{'odd-li': odd, 'last-li': tasksList.length === 1}" >
         {{task.name | transformTask: '!'}}
-        <button type="button" class="btn btn-danger" (click)="remove(task)">Remove</button>
-        <button type="button" class="btn btn-success" (click)="markDone(task)">Mark as done</button>
+        <button type="button" class="btn btn-secondary" (click)="remove(task)">Remove</button>
+        <button type="button" class="btn btn-primary" (click)="markDone(task)">Mark as done</button>
       </li>
     </ul>
   </ng-container>
