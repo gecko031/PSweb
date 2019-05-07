@@ -1,6 +1,14 @@
-<p>Done tasks: {{tasksDone.length}}</p>
-<ul>
-  <li appTick appDate [date]="task.end" *ngFor="let task of tasksDone">
-    {{task.name | transformTask: ' - good job ( ͡° ͜ʖ ͡°)'}}
-  </li>
-</ul>
+<div>
+  <div><strong>DONE Tasks:</strong></div><br>
+  <ng-container *ngIf="tasksDone?.length > 0 ; else noTasks">
+    <ul *ngFor="let task of tasksDone" class="collection">
+      <li class="collection-task"><strong>{{task.name}}</strong> -> [isDone: {{task.isDone}}]
+      </li>
+    </ul>
+  </ng-container>
+
+  <ng-template #noTasks>
+    <p>You haven't done anything yet... shame on you</p>
+  </ng-template>
+
+</div>

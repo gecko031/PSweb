@@ -4,13 +4,13 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyAKi1os6Mts8krjhbqp9n8SRNgxWulCOlI",
-    authDomain: "psweb-e74f5.firebaseapp.com",
-    databaseURL: "https://psweb-e74f5.firebaseio.com",
-    projectId: "psweb-e74f5",
-    storageBucket: "psweb-e74f5.appspot.com",
-    messagingSenderId: "968609702713"
+  firebaseConfig: {
+    apiKey: 'AIzaSyAKi1os6Mts8krjhbqp9n8SRNgxWulCOlI',
+    authDomain: 'psweb-e74f5.firebaseapp.com',
+    databaseURL: 'https://psweb-e74f5.firebaseio.com',
+    projectId: 'psweb-e74f5',
+    storageBucket: 'psweb-e74f5.appspot.com',
+    messagingSenderId: '968609702713'
   }
 };
 

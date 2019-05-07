@@ -1,6 +1,6 @@
-import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
-import { TasksService } from '../services/tasks.services';
+import {Component, OnInit} from '@angular/core';
 import { Task } from '../model/task.model';
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-add-task',
@@ -11,13 +11,13 @@ export class AddTaskComponent implements OnInit {
 
   newTask: string;
 
-  constructor(private tasksService: TasksService) { }
+  constructor(private fs: TaskService) { }
 
   ngOnInit() {
   }
   add() {
     const task: Task = ({name: this.newTask, created: new Date().toLocaleString(), isDone: false});
-    this.tasksService.add(task);
+    this.fs.createTask(task);
     this.newTask = '';
   }
 

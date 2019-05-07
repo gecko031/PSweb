@@ -4,10 +4,10 @@ import { Directive, HostListener, Input, ElementRef, Renderer2 } from '@angular/
   selector: '[appDate]'
 })
 export class DateDirective {
-  
+
   @Input()
   private date: string;
-  private paragraph; //<p>
+  private paragraph; // <p>
 
 
   constructor(private elementRef: ElementRef, private  renderer: Renderer2) {

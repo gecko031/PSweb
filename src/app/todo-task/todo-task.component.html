@@ -1,15 +1,16 @@
 <div>
-  <ng-container *ngIf="tasksList.length > 0; else noTasks">
-    <p [ngStyle]="{color:getColor()}">Task to do: {{tasksList.length}}</p>
+  <ng-container *ngIf="tasks?.length > 0; else noTasks">
+    <p [ngStyle]="{color:getColor()}"><strong>TODO tasks: {{tasks.length}}</strong></p>
     <ul>
-        <li appDate [date]="task.created" *ngFor="let task of tasksList | sortName; let odd = odd" [ngClass]="{'odd-li': odd, 'last-li': tasksList.length === 1}" >
-        {{task.name | transformTask: '!'}}
+      <li appDate [date]="task.created" *ngFor="let task of tasks | sortName; let odd = odd" [ngClass]="{'odd-li': odd, 'last-li': task.length === 1}" >
         <button type="button" class="btn btn-secondary" (click)="remove(task)">Remove</button>
-        <button type="button" class="btn btn-primary" (click)="markDone(task)">Mark as done</button>
+        <button type="button" class="btn btn-primary" (click)="markDone(task)">Mark done</button>
+        {{task.name | transformTask: '!'}}
+        [ isDone - {{task.isDone}}]
       </li>
     </ul>
   </ng-container>
   <ng-template #noTasks>
-    <p>No tasks availible, enjoy your free time</p>
+    <p>No tasks available, enjoy your free time</p>
   </ng-template>
 </div>
