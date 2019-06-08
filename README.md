@@ -2,7 +2,7 @@
 
   Simple TODO application build with Angular7 for educational purposes.
 
-##Demo
+## Demo
 
 ![demo](src/demo/demoCrud.gif)
 
